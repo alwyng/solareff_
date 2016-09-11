@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.greenlight.solareff"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.greenlight.solareff"
+        },
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "com.greenlight.solareff"
+        }
+    },
+    "dependent_plugins": {}
+}

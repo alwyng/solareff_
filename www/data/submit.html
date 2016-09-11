@@ -6,9 +6,6 @@
 		<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 		<script type="text/javascript" charset="utf-8">
 
-			function getPicture(){
-				navigator.camera.getPicture(function(){}, function(){});
-			}
 			
 		</script>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
@@ -31,8 +28,6 @@
 		<button onclick="getPicture();">Take photo of utilities bill</button>
 		<br>
 		<br>
-		<form action="mailto:alwyn.grobler@gmail.com" method="post" enctype="text/plain" >
-			<input type="submit" name="submit" value="Submit">
-		</form>
+		<input type="button" name="btnSubmit" onclick="email()" value="Submit">
 	</body>
 </html>

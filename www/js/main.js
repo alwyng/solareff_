@@ -4,15 +4,15 @@ function load()
 
 	//set to true for debug mode
 	localStorage.isDebug = "false";
-	
-	document.addEventListener('deviceready', function () {
-		// cordova.plugins.email is now available 
-	}, false);
-	//alert("deviceready fired");
-	
-	//var callback = function(result) { alert(result) };
-	//cordova.plugins.email.isAvailable(callback);
 
+	document.addEventListener("deviceready",deviceReadyFeedback,false);
+}
+
+function deviceReadyFeedback()
+{
+	if (!cordova.plugins.email) {
+		alert('Email functionality not available');
+	};
 }
 
 function setCurrentApp(txt)
@@ -20,27 +20,6 @@ function setCurrentApp(txt)
 	localStorage.CurrentApp = txt;
 }
 
-function mail()
-{
-	alert("mail start");
-	cordova.plugins.email.isAvailable(
-    function (isAvailable) {
-        console.log('Service is not available.');
-		}
-	);
-	alert("mail end");
-	
-	
-}
-
-function mail2()
-{
-	alert("start");
-	
-	
-	
-	alert("end");
-}
 
 var clientId = '491366748073-bs990o1vonvc7a0pskiqg9fgkrh4gtna.apps.googleusercontent.com';
 var apiKey = 'u1n8vKmX-TySZBovzRTiWFOX';

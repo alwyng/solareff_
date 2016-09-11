@@ -13,6 +13,7 @@ function deviceReadyFeedback()
 	if (!cordova.plugins.email) {
 		alert('Email functionality not available');
 	};
+	alert('ready');
 }
 
 function setCurrentApp(txt)

@@ -2,10 +2,74 @@
 <html>
 	<head>
 		<title>Solareff</title>
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 		<script type="text/javascript" charset="utf-8">
+			var pictureSource;   // picture source
+			var destinationType; // sets the format of returned value
 
+			// Wait for device API libraries to load
+			//
+			document.addEventListener("deviceready",onDeviceReady,false);
+
+			// device APIs are available
+			//
+			function onDeviceReady() 
+			{
+				pictureSource=navigator.camera.PictureSourceType;
+				destinationType=navigator.camera.DestinationType;
+				alert('submit ready');
+			}
+			
+			document.addEventListener("deviceready",onDeviceReady,false);
+			function onDeviceReady()
+			{
+				/*if (cordova.plugins.email) {
+					alert('Cordova available');
+				};
+				alert('Device Ready');*/
+			}
+			
+			function onFail(message) 
+			{
+				setTimeout(function() {
+					alert('Failed because: ' + message);
+				}, 0);
+				
+			}
+			
+			function onPhotoDataSuccess(imageData) 
+			{
+			  // Uncomment to view the base64-encoded image data
+			  // console.log(imageData);
+
+			  // Get image handle
+			  //
+			  var smallImage = document.getElementById('smallImage');
+
+			  // Unhide image elements
+			  //
+			  smallImage.style.display = 'block';
+
+			  // Show the captured photo
+			  // The in-line CSS rules are used to resize the image
+			  //
+			  smallImage.src = "data:image/jpeg;base64," + imageData;
+			  localStorage.imageData = imageData;
+			}
+			
+			function capturePhoto() 
+			{
+				try
+				{
+					// Take picture using device camera and retrieve image as base64-encoded string
+					navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: Camera.DestinationType.DATA_URL });
+				}
+				catch(err) {
+					alert(err.message);
+				}
+			}
+			
 			
 		</script>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
@@ -25,9 +89,31 @@
 		</a>
 		<br>
 		<br>
-		<button onclick="getPicture();">Take photo of utilities bill</button>
+		<button onclick="capturePhoto();">Take photo of utilities bill</button>
 		<br>
 		<br>
-		<input type="button" name="btnSubmit" onclick="email()" value="Submit">
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script type="text/javascript" src="../js/index.js"></script>
+		<script type="text/javascript">
+			/*app.initialize();*/
+			function email1()
+			{
+				try {
+					cordova.plugins.email.open({
+						to:      'alwyn.grobler@gmail.com',
+						cc:      [],
+						bcc:     [],
+						subject: 'Solareff App Result',
+						body:    'Test',
+						attachments: 'base64:bill.png//'+localStorage.imageData+'/'
+					});
+				}
+				catch(err) {
+					alert(err.message);
+				}
+			}
+		</script>
+
+		<input type="button" name="btnSubmit" onclick="email1()" value="Submit">
 	</body>
 </html>

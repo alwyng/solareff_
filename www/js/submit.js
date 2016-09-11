@@ -7,9 +7,10 @@ function submit()
 {
 	alert("Submit");
 }
-
+/*
 function email()
 {
+	alert('try to send mail');
 	try {
 		cordova.plugins.email.open({
 			to:      'alwyn.grobler@gmail.com',
@@ -22,4 +23,5 @@ function email()
 	catch(err) {
 		alert(err.message);
 	}
-}
+	alert('mail send complete');
+}*/

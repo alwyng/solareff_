@@ -40,22 +40,46 @@
 			
 			function onPhotoDataSuccess(imageData) 
 			{
-			  // Uncomment to view the base64-encoded image data
-			  // console.log(imageData);
+					
+				  // Uncomment to view the base64-encoded image data
+				  // console.log(imageData);
 
-			  // Get image handle
-			  //
-			  var smallImage = document.getElementById('smallImage');
+				  // Get image handle
+				  //
+				  //var smallImage = document.getElementById('smallImage');
 
-			  // Unhide image elements
-			  //
-			  smallImage.style.display = 'block';
+				  // Unhide image elements
+				  //
+				  //smallImage.style.display = 'block';
 
-			  // Show the captured photo
-			  // The in-line CSS rules are used to resize the image
-			  //
-			  smallImage.src = "data:image/jpeg;base64," + imageData;
-			  localStorage.imageData = imageData;
+				  // Show the captured photo
+				  // The in-line CSS rules are used to resize the image
+				  //
+				  //alert('222');
+				  //smallImage.src = "data:image/jpeg;base64," + imageData;
+				 
+				  //document.getElementById('myP').innerHTML = imageData;
+				  
+				  //alert('333');
+				  
+				  setTimeout(function() {
+					try {
+						cordova.plugins.email.open({
+							to:      'alwyn.grobler@gmail.com',
+							cc:      [],
+							bcc:     [],
+							subject: 'Solareff App Result',
+							body:    'Test',
+							attachments: 'base64:bill.jpg//'+imageData
+						});
+					}
+					catch(err) {
+						alert(err.message);
+					}
+					//alert('444.1');
+				  }, 0);
+				  
+				  //alert('444.2');
 			}
 			
 			function capturePhoto() 
@@ -69,8 +93,31 @@
 					alert(err.message);
 				}
 			}
+		
+			function getBase64Image(img) {
+				// Create an empty canvas element
+				var canvas = document.createElement("canvas");
+				canvas.width = img.width;
+				canvas.height = img.height;
+
+				// Copy the image contents to the canvas
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(img, 0, 0);
+
+				// Get the data-URL formatted image
+				// Firefox supports PNG and JPEG. You could check img.src to
+				// guess the original format, but be aware the using "image/jpg"
+				// will re-encode the image.
+				var dataURL = canvas.toDataURL("image/png");
+
+				return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+			}
 			
-			
+			function test()
+			{
+				var image = document.getElementById('myImage');
+				
+			}
 		</script>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<script src="../js/recalc.js"></script>
@@ -89,31 +136,10 @@
 		</a>
 		<br>
 		<br>
-		<button onclick="capturePhoto();">Take photo of utilities bill</button>
-		<br>
-		<br>
 		<script type="text/javascript" src="../cordova.js"></script>
 		<script type="text/javascript" src="../js/index.js"></script>
-		<script type="text/javascript">
-			/*app.initialize();*/
-			function email1()
-			{
-				try {
-					cordova.plugins.email.open({
-						to:      'alwyn.grobler@gmail.com',
-						cc:      [],
-						bcc:     [],
-						subject: 'Solareff App Result',
-						body:    'Test',
-						attachments: 'base64:bill.png//'+localStorage.imageData+'/'
-					});
-				}
-				catch(err) {
-					alert(err.message);
-				}
-			}
-		</script>
+		
 
-		<input type="button" name="btnSubmit" onclick="email1()" value="Submit">
+		<input type="button" name="btnSubmit" onclick="capturePhoto();" value="Submit">
 	</body>
 </html>

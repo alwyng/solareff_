@@ -15,7 +15,14 @@
         },
         "cordova-plugin-email-composer": {
             "PACKAGE_NAME": "com.greenlight.solareff"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        }
+    }
 }

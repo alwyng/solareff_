@@ -7,7 +7,7 @@
     <author href = "http://www.dontknowyet.co.za" email = "alwyn.grobler@gmail.com">
       Appdev
    </author>
-    <content src="index.html" />
+    <content src="www/index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
 	<plugin name="de.appplant.cordova.plugin.email-composer" spec="0.8.2" source="pgb" />

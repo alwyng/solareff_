@@ -1,5 +1,6 @@
 function recalc()
 {
+	//localStorage.roomList = "Kitchen";
 	var intKwh = 0;
 	if (localStorage.getItem("roomList")!=null) {
 		var roomList = localStorage.getItem("roomList");
@@ -14,10 +15,11 @@ function recalc()
 				}
 			}
 		}
+		
 		localStorage.kWh = intKwh;
 	} else {
 		localStorage.kWh = 0;
 	}
-	
+
 	document.frmKwh.txtKwh.value = localStorage.kWh+" kWh";
 }

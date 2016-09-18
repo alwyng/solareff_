@@ -1,11 +1,46 @@
+
 function load()
 {
-	recalc();
+	/*Declare global variables*/
+	arrRooms = ["Kitchen","Dining Room","Bedroom 1","Bathroom 1","Bedroom 2","Bathroom 2","Bedroom 3","Bathroom 3","Living Inside","Living Outside","Scullery","Laundry","Garden"];
+	if (localStorage.arrRooms==null) {
+		localStorage.arrRooms = arrRooms;
+	}
+	else {
+		arrRooms = localStorage.arrRooms.split(',');
+	}
+	/*------------------------*/
 
 	//set to true for debug mode
 	localStorage.isDebug = "false";
 
 	document.addEventListener("deviceready",deviceReadyFeedback,false);
+	
+	createRooms();
+	
+	recalc();
+}
+
+function createRooms()
+{
+	var table = document.getElementById("tblRooms");
+	var arrStack = arrRooms;
+	var iRows = Math.trunc(arrRooms.length/3);
+	
+	for (var i = 0; i<=iRows; i++) {
+		var row = table.insertRow(table.rows.length);
+		for (var j = 0; j<3; j++) {
+			if (arrStack.length>0) {
+				var cell = row.insertCell(j);
+				var btn = document.createElement('div');
+				btn.innerHTML = "<input type = 'button' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
+				cell.appendChild(btn);
+				
+				//pop the first stack item
+				arrStack.splice(0,1);
+			}
+		}
+	}
 }
 
 function deviceReadyFeedback()
@@ -13,7 +48,12 @@ function deviceReadyFeedback()
 	if (!cordova.plugins.email) {
 		alert('Email functionality not available');
 	};
-	alert('ready');
+}
+
+function gotoAdder(txt)
+{
+	setCurrentApp(txt);
+	window.location.href = 'appliance_adder.html';
 }
 
 function setCurrentApp(txt)
@@ -21,87 +61,16 @@ function setCurrentApp(txt)
 	localStorage.CurrentApp = txt;
 }
 
-
-var clientId = '491366748073-bs990o1vonvc7a0pskiqg9fgkrh4gtna.apps.googleusercontent.com';
-var apiKey = 'u1n8vKmX-TySZBovzRTiWFOX';
-var scopes =
-			  'https://www.googleapis.com/auth/gmail.readonly '+
-			  'https://www.googleapis.com/auth/gmail.send';
-				  
-function handleClientLoad() 
+function addRoom()
 {
-	gapi.client.setApiKey(apiKey);
-	window.setTimeout(checkAuth, 1);
+	var txtRoom = document.getElementById('txtRoom');
+	arrRooms = localStorage.arrRooms.split(',');
+	arrRooms.push(txtRoom.value);
+	localStorage.arrRooms = arrRooms;
+	txtRoom.innerHTML = '';
+	
+	var Table = document.getElementById("tblRooms");
+	Table.innerHTML = "";
+	
+	createRooms();
 }
-
-function checkAuth() 
-{
-	gapi.auth.authorize({
-	  client_id: clientId,
-	  scope: scopes,
-	  immediate: true
-	}, handleAuthResult);
-}
-
-function handleAuthClick() {
-	gapi.auth.authorize({
-	  client_id: clientId,
-	  scope: scopes,
-	  immediate: false
-	}, handleAuthResult);
-	return false;
-}
-
-function handleAuthResult(authResult) {
-	alert('handleAuthResult');
-	if(authResult && !authResult.error) {
-	  loadGmailApi();
-		alert('success');
-	} else {
-		alert('fail');
-	}
-}
-
-function loadGmailApi() {
-	gapi.client.load('gmail', 'v1', displayInbox);
-}
-
-
-function sendEmail()
-{
-	alert('start');
-  sendMessage(
-    {
-      'To': 'alwyn.grobler@gmail.com',
-      'Subject': 'test'
-    },
-    'Message body',
-    composeTidy
-  );
-
-  return false;
-}
-
-function sendMessage(headers_obj, message, callback)
-{
-  var email = '';
-
-  for(var header in headers_obj)
-    email += header += ": "+headers_obj[header]+"\r\n";
-
-  email += "\r\n" + message;
-  alert('ttt');
-  var sendRequest = gapi.client.gmail.users.messages.send({
-    'userId': '491366748073-bs990o1vonvc7a0pskiqg9fgkrh4gtna.apps.googleusercontent.com',
-    'resource': {
-      'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
-    }
-  });
-  
-  alert('done');
-
-  return sendRequest.execute(callback);
-}
-
-function composeTidy()
-{}

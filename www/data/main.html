@@ -20,115 +20,37 @@
 		</form>
 		<h3>Choose your room</h3>
 		<br>
-		<table>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Kitchen </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Dining Room </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bedroom 1 </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bathroom 1 </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bedroom 2 </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bathroom 2 </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bedroom 3 </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Bathroom 3 </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Living Inside </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Living Outside </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Scullery </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Laundry </a>
-				</td>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href="appliance_adder.html" onclick="setCurrentApp(this.innerHTML)"> Garden </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href=""> Add Room </a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					&nbsp
-				</td>
-				<td style="background-color:gray">
-					<a href="submit.html"> Submit </a>
-				</td>
-				<td>
-					&nbsp
-				</td>
-			</tr>
-			<tr>
-			</tr>
-			<tr style="background-color:gray">
-				<td>
-					<a href=""> Contact Us </a>
-				</td>
-				<td style="background-color:white">
-					&nbsp
-				</td>
-				<td>
-					<a href="main_help.html"> Help </a>
-				</td>
-			</tr>
+		<table id="tblRooms">
+			<!--dynamic rooms go here-->
 		</table>
-		
-		<!--<input type="button" name="btnMail" value="Email" onclick="mail()">
-		<br>
-		<br>
-		<input type="button" name="btnMail2" value="Email2" onclick="sendEmail()">
-
-		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
+		<table>
+			<tr>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type = 'text' placeholder = 'Your Custom Room' id='txtRoom'> <br>
+					<input type = 'button' value = 'Add Room' onClick = "addRoom()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type = 'button' value = 'Submit' onClick = "location.href = 'submit.html'">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type = 'button' value = 'Help' onClick = "location.href = 'submit.html'">
+				</td>
+			</tr>
 	</body>
 </html>

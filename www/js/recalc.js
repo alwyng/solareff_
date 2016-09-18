@@ -14,6 +14,7 @@ function recalc()
 					intKwh += arrDetails[1]*arrDetails[2];
 				}
 			}
+			//alert(arrRooms);
 		}
 		
 		localStorage.kWh = intKwh;

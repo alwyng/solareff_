@@ -26,6 +26,7 @@ function createRooms()
 	var table = document.getElementById("tblRooms");
 	var arrStack = arrRooms;
 	var iRows = Math.trunc(arrRooms.length/2);
+	alert(arrStack);
 	
 	for (var i = 0; i<=iRows; i++) {
 		var row = table.insertRow(table.rows.length);

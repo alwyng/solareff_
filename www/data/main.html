@@ -1,8 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	    <meta name="mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>Solareff</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	    <link rel="stylesheet" href="../css/framework7.ios.css">
+	    <link rel="stylesheet" href="../css/framework7.ios.colors.css">
+	    <link rel="stylesheet" href="../css/kitchen-sink.css">
+	    <link rel="icon" href="../res/icon/img/logo.png">
+	    <link rel="apple-touch-icon" href="../res/icon/img/logo.png">		
 		<script src="../js/recalc.js"></script>
 		<script src="../js/main.js"></script>
 		
@@ -11,46 +21,79 @@
                   style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
                   script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
 	</head>
-	<body onload="load()">
-		<a href="http://www.solareff.co.za">
-			<img src="../res/icon/img/logo.jpg">
-		</a> 
-		<form name="frmKwh" action="">
-			<input type="text" name="txtKwh" disabled>
-		</form>
-		<h3>Choose your room</h3>
-		<br>
-		<table id="tblRooms">
-			<!--dynamic rooms go here-->
-		</table>
-		<table>
-			<tr>
-				<td>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type = 'text' placeholder = 'Your Custom Room' id='txtRoom'> <br>
-					<input type = 'button' value = 'Add Room' onClick = "addRoom()">
-				</td>
-			</tr>
-			<tr>
-				<td>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type = 'button' value = 'Submit' onClick = "location.href = 'submit.html'">
-				</td>
-			</tr>
-			<tr>
-				<td>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type = 'button' value = 'Help' onClick = "location.href = 'submit.html'">
-				</td>
-			</tr>
+	<body onload="load()">			    
+		<div class="statusbar-overlay">    	
+	    </div>
+	    <div class="views">
+	      <div class="view view-main">
+	        <div class="navbar">
+	          <div class="navbar-inner">
+			    <div class="left sliding"><a href="../index.html" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+	            <div class="center sliding">Configure Rooms</div>
+	            <div class="right">
+	            </div>
+	          </div>
+	        </div>
+	        <div class="pages navbar-through toolbar-through">
+          		<div class="page">
+            		<div class="page-content">		
+						<a href="http://www.solareff.co.za">
+							<img src="../res/icon/img/logo.jpg">
+						</a> 
+						<form class="center" name="frmKwh" action="">
+							<input type="text" name="txtKwh" disabled>
+						</form>
+						<br>
+						<a href="fivekeys.html" class="button button-big">5 Key Energy Questions
+						</a> 
+						<h3>Choose room to add appliances</h3>					
+						<table id="tblRooms">
+							<!--dynamic rooms go here-->
+						</table>
+						<table>
+							<tr>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type = 'text' placeholder = 'Your Custom Room' id='txtRoom'> <br>
+									<input type = 'button' value = 'Add Room' onClick = "addRoom()">
+								</td>
+							</tr>
+							<tr>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type = 'button' value = 'Submit' onClick = "location.href = 'submit.html'">
+								</td>
+							</tr>
+							<tr>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type = 'button' value = 'Help' onClick = "location.href = 'submit.html'">
+								</td>
+							</tr>
+						</table>
+						<br>
+						<a href="submit.html" class="button button-big"> Submit </a>
+					</div>
+				</div>
+			</div>
+			<div class="toolbar">
+				<div class="toolbar-inner">
+					<a href="contact_us.html" class="link">Contact Us
+					</a>
+					<a href="faq.html" class="link">FAQ
+					</a>
+				</div>
+			</div>
+	       </div>
+	      </div>		
 	</body>
 </html>

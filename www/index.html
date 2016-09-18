@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
@@ -19,31 +23,65 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="css/framework7.ios.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.css">
+	<link rel="stylesheet" href="css/kitchen-sink.css">
+	<link rel="icon" href="res/icon/img/logo.png">
+	<link rel="apple-touch-icon" href="res/icon/img/logo.png">
     <title>Solareff</title>
 	<script src="js/recalc.js"></script>
 	<script src="js/login.js"></script>
 </head>
 
 <body onload="load()"> 
-    <div class="app">
-		<a href="http://www.solareff.co.za">
-			<img src="res/icon/img/logo.jpg">
-		</a>
-		<br>
-		<form name="myform" action="">
-			<h3>Name</h3>
-			<input type="text" name="txtName">
-			<h3>Surname</h3>
-			<input type="text" name="txtSurname">
-			<h3>Email Address</h3>
-			<input type="text" name="txtEmail">
-		</form>
-		<br>
-		<br>
-		<a href="data/main.html">
-			<input type="button" onclick="captureEmail()" value="Continue...">
-		</a>
-    </div>
+	<div class="statusbar-overlay">    	
+	</div>
+	    <div class="views">
+	      <div class="view view-main">
+	        <div class="navbar">
+	          <div class="navbar-inner">
+	            <div class="left">	            	
+	            </div>
+	            <div class="center sliding">Solareff Mobile</div>
+	            <div class="right">
+	            </div>
+	          </div>
+	        </div>
+	        <div class="pages navbar-through toolbar-through">
+          		<div class="page">
+            		<div class="page-content">
+				    <div class="app">
+						<a href="http://www.solareff.co.za">
+							<img src="res/icon/img/logo.jpg">
+						</a>
+						<br>
+						<form name="myform" action="">
+							<h3>Name</h3>
+							<input type="text" name="txtName">
+							<h3>Surname</h3>
+							<input type="text" name="txtSurname">
+							<h3>Email Address</h3>
+							<input type="text" name="txtEmail">
+						</form>
+						<br>
+						<br>
+						<a href="data/main.html">
+							<input type="button" class="button button-big" onclick="captureEmail()" value="Continue...">
+						</a>
+				    </div>
+    				</div>
+				</div>
+			</div>
+			<div class="toolbar">
+				<div class="toolbar-inner">
+					<a href="data\contact_us.html" class="link">Contact Us
+					</a>
+					<a href="data\faq.html" class="link">FAQ
+					</a>
+				</div>
+			</div>
+	       </div>
+	      </div>	          	    
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">

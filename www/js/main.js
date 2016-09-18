@@ -25,11 +25,11 @@ function createRooms()
 {
 	var table = document.getElementById("tblRooms");
 	var arrStack = arrRooms;
-	var iRows = Math.trunc(arrRooms.length/3);
+	var iRows = Math.trunc(arrRooms.length/2);
 	
 	for (var i = 0; i<=iRows; i++) {
 		var row = table.insertRow(table.rows.length);
-		for (var j = 0; j<3; j++) {
+		for (var j = 0; j<2; j++) {
 			if (arrStack.length>0) {
 				var cell = row.insertCell(j);
 				var btn = document.createElement('div');

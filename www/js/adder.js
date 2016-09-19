@@ -84,7 +84,7 @@ function getState()
 			
 			if (i>0) {
 				var imgDel = document.createElement('img');
-				imgDel.src = "../res/icon/img/delete.gif";
+				imgDel.src = "../img/delete.gif";
 				imgDel.addEventListener('click',function(){removeApp(this)});
 				var cell4 = row.insertCell(3);
 				cell4.appendChild(imgDel);
@@ -179,7 +179,7 @@ function AddApp()
 	cell3.appendChild(nbr);
 	var imgDel = document.createElement('img');
 	//delete row button
-	imgDel.src = "../res/icon/img/delete.gif";
+	imgDel.src = "../img/delete.gif";
 	imgDel.addEventListener('click',function(){removeApp(this)});
 	var cell4 = row.insertCell(3);
 	cell4.appendChild(imgDel);

@@ -34,7 +34,7 @@ function createRooms()
 			if (arrStack.length>0) {
 				var cell = row.insertCell(j);
 				var btn = document.createElement('div');
-				btn.innerHTML = "<input type = 'button' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
+				btn.innerHTML = "<input type = 'button' class='button button-fill' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
 				cell.appendChild(btn);
 				
 				//pop the first stack item

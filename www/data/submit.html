@@ -173,6 +173,33 @@
 						</a>-->
 						<script type="text/javascript" src="../cordova.js"></script>
 						<script type="text/javascript" src="../js/index.js"></script>
+						
+						<div>
+							<script>
+								var arrRoomList = localStorage.roomList.split(';');
+								var strEmailBody = 'Room,Quantity,Number Items\n';
+								var arrRoomDetail;
+								var arrAppDetail;
+								for (var i=0;i<arrRoomList.length;i++) {
+									arrRoomDetail = localStorage.getItem(arrRoomList[i]).split(';');
+									for (var j=0;j<arrRoomDetail.length;j++) {
+										if (arrRoomDetail[j]!="") {
+											arrAppDetail = arrRoomDetail[j].split(',');
+											if (j==0) {
+												document.write("<br>");
+												document.write(arrRoomList[i]+" <br>");
+												document.write("&nbsp&nbsp&nbsp"+arrAppDetail[0]+"\t"+"Hours="+arrAppDetail[1]+"\t Quantity="+arrAppDetail[2])+" <br>";
+												document.write("<br>");
+											} else {
+												document.write("&nbsp&nbsp&nbsp"+arrAppDetail[0]+"\t"+"Hours="+arrAppDetail[1]+"\t Quantity="+arrAppDetail[2])+" <br>";
+												document.write("<br>");
+											}
+										}
+									}
+								}
+								
+							</script>
+						</div>
 									
 						<input class="button button-big" type="button" name="btnSubmit" onclick="capturePhoto();" value="Take photo and submit information">
 						

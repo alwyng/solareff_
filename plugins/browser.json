@@ -13,16 +13,12 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.greenlight.solareff"
         },
-        "cordova-plugin-email-composer": {
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.greenlight.solareff"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "com.greenlight.solareff"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        }
-    }
+    "dependent_plugins": {}
 }

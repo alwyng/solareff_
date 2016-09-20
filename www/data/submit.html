@@ -69,12 +69,24 @@
 				  
 				  setTimeout(function() {
 					try {
+						var arrRoomList = localStorage.roomList.split(';');
+						var strEmailBody = 'Room,Quantity,Number Items\n';
+						var arrRoomDetail;
+						for (var i=0;i<arrRoomList.length;i++) {
+							arrRoomDetail = localStorage.getItem(arrRoomList[i]).split(';');
+							for (var j=0;j<arrRoomDetail.length;j++) {
+								if (arrRoomDetail[j]!="") {
+									strEmailBody += arrRoomList[i]+","+arrRoomDetail[j]+"\n";
+								}
+							}
+						}
+					
 						cordova.plugins.email.open({
 							to:      'alwyn.grobler@gmail.com',
 							cc:      [],
 							bcc:     [],
 							subject: 'Solareff App Result',
-							body:    'Test',
+							body:    "Copy and paste the following lines into excel:\n"+strEmailBody,
 							attachments: 'base64:bill.jpg//'+imageData
 						});
 					}

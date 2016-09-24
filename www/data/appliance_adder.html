@@ -51,37 +51,46 @@
 							<tr style="background-color:white">
 								<script>
 									if (localStorage.getItem(localStorage.CurrentApp.replace(/ /g,''))==null) {
-										var table = document.getElementById("tblApp");
-										var row = table.insertRow(table.rows.length);
-										var cell1 = row.insertCell(0);
-										cell1.innerHTML = "Lights";
-										//add the capture boxes
-										var hrs = document.createElement('input');
-										hrs.setAttribute('type', 'text');
-										hrs.setAttribute('placeholder', 'Hours per Day');
-										hrs.setAttribute('id','defaulthrs');
-										hrs.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
-										var cell2 = row.insertCell(1);
-										cell2.appendChild(hrs);
-										var nbr = document.createElement('input');
-										nbr.setAttribute('type', 'text');
-										nbr.setAttribute('placeholder', 'Quantity');
-										nbr.setAttribute('id','defaultnbr');
-										nbr.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
-										var cell3 = row.insertCell(2);
-										cell3.appendChild(nbr);
+										var arrApps = localStorage.getItem('arr'+localStorage.CurrentApp.replace(/ /g,'')+'App').split(',');
+										var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
+										
+										for (var i=0;i<intDfltApps;i++) {
+											var table = document.getElementById("tblApp");
+											var row = table.insertRow(table.rows.length);
+											var cell1 = row.insertCell(0);
+											cell1.innerHTML = arrApps[i];
+											//add the capture boxes
+											var hrs = document.createElement('input');
+											hrs.setAttribute('type', 'text');
+											hrs.setAttribute('placeholder', 'Hours per Day');
+											hrs.setAttribute('id','defaulthrs');
+											hrs.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
+											var cell2 = row.insertCell(1);
+											cell2.appendChild(hrs);
+											var nbr = document.createElement('input');
+											nbr.setAttribute('type', 'text');
+											nbr.setAttribute('placeholder', 'Quantity');
+											nbr.setAttribute('id','defaultnbr');
+											nbr.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
+											var cell3 = row.insertCell(2);
+											cell3.appendChild(nbr);
+										}
 									}
 								</script>
 							</tr>
 						</table>
 						<br>
-						<select id="lstAppPicker" size="5">
-							<option>Lights</option>
-							<option>Stove</option>
-							<option>Oven</option>
-							<option>Fridge</option>
-							<option>Dishwasher</option>
-						</select>
+						<script>
+							var arrApps = localStorage.getItem('arr'+localStorage.CurrentApp.replace(/ /g,'')+'App').split(',');
+							var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
+							var intSelectSize = arrApps.length-intDfltApps;
+							
+							document.write('<select id="lstAppPicker" size="'+intSelectSize+'">');//'+arrApps.length-intDfltApps+'">');
+							for (var i=intDfltApps;i<=arrApps.length-intDfltApps+1;i++) {
+								document.write('<option>'+arrApps[i]+'</option>');
+							}
+							document.write('</select>');
+						</script>
 						<br>
 						<input type="button" name="btnAdd" value="Add appliance" onclick="AddApp()">
 						<!--<br>

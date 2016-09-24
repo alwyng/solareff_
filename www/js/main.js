@@ -9,6 +9,14 @@ function load()
 	else {
 		arrRooms = localStorage.arrRooms.split(',');
 	}
+	
+	//Room defaults*/
+	localStorage.arrKitchenApp = ["Lights","Stove","Oven","Fridge","Dishwasher"];
+	localStorage.intKitchenDefault = 3;
+	
+	localStorage.arrBathroom1App = ["Lights","App2","App3","App4","App5"];
+	localStorage.intBathroom1Default = 2;
+	
 	/*------------------------*/
 
 	//set to true for debug mode

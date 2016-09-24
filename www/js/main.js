@@ -2,7 +2,7 @@
 function load()
 {
 	/*Declare global variables*/
-	arrRooms = ["Kitchen","Dining Room","Bedroom 1","Bathroom 1","Bedroom 2","Bathroom 2","Bedroom 3","Bathroom 3","Living Inside","Living Outside","Scullery","Laundry","Garden"];
+	arrRooms = ["Kitchen","Dining Room","Bedroom 1","Bathroom 1","Bedroom 2","Bathroom 2","Bedroom 3","Bathroom 3","Living Inside","Living Outside","Scullery","Laundry","Garden","Office"];
 	if (localStorage.arrRooms==null) {
 		localStorage.arrRooms = arrRooms;
 	}

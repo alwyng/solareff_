@@ -3118,7 +3118,7 @@ html:not(.watch-active-state) .button:active,
 }
 .button.button-fill {
   color: #fff;
-  background: #b30000;
+  background: #d2232a;
   border: none;
 /*  height: 100%; 
   width: 100%; 

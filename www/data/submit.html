@@ -70,16 +70,25 @@
 				  setTimeout(function() {
 					try {
 						var arrRoomList = localStorage.roomList.split(';');
-						var strEmailBody = 'Room,Quantity,Number Items\n';
+						var strEmailBody = '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
 						var arrRoomDetail;
+						
 						for (var i=0;i<arrRoomList.length;i++) {
-							arrRoomDetail = localStorage.getItem(arrRoomList[i]).split(';');
-							for (var j=0;j<arrRoomDetail.length;j++) {
-								if (arrRoomDetail[j]!="") {
-									strEmailBody += arrRoomList[i]+","+arrRoomDetail[j]+"\n";
+							
+							var roomList = localStorage.getItem(arrRoomList[i]);
+							if (roomList!=null) {
+								arrRoomDetail = roomList.split(';');
+								strEmailBody += '<tr><td> '+arrRoomList[i]+' </td></tr><tr>';
+								for (var j=0;j<arrRoomDetail.length;j++) {
+									if (arrRoomDetail[j]!="") {
+										var appDetail = arrRoomDetail[j].split(',');
+										strEmailBody += '<tr><td> '+appDetail[0]+' </td><td> '+appDetail[1]+' </td><td> '+appDetail[2]+' </td></tr>';
+									}
 								}
+								strEmailBody += '</tr>';
 							}
 						}
+						strEmailBody += '</table>';
 					
 						cordova.plugins.email.open({
 							to:      'alwyn.grobler@gmail.com',
@@ -89,6 +98,8 @@
 							body:    "Copy and paste the following lines into excel:\n"+strEmailBody,
 							attachments: 'base64:bill.jpg//'+imageData
 						});
+						
+						window.location.href = 'thankyou.html';
 					}
 					catch(err) {
 						alert(err.message);
@@ -135,6 +146,7 @@
 				var image = document.getElementById('myImage');
 				
 			}
+			
 		</script>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	    <link rel="stylesheet" href="../css/framework7.ios.css">
@@ -180,7 +192,7 @@
 						
 						<div>
 							<script>
-								var arrRoomList = localStorage.roomList.split(';');
+								/*var arrRoomList = localStorage.roomList.split(';');
 								var strEmailBody = 'Room,Quantity,Number Items\n';
 								var arrRoomDetail;
 								var arrAppDetail;
@@ -200,8 +212,30 @@
 											}
 										}
 									}
-								}
+								}*/
 								
+								var arrRoomList = localStorage.roomList.split(';');
+								var strEmailBody = '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
+								var arrRoomDetail;
+								
+								for (var i=0;i<arrRoomList.length;i++) {
+									
+									var roomList = localStorage.getItem(arrRoomList[i]);
+									if (roomList!=null) {
+										arrRoomDetail = roomList.split(';');
+										strEmailBody += '<tr><td> '+arrRoomList[i]+' </td></tr><tr>';
+										for (var j=0;j<arrRoomDetail.length;j++) {
+											if (arrRoomDetail[j]!="") {
+												var appDetail = arrRoomDetail[j].split(',');
+												strEmailBody += '<tr><td> '+appDetail[0]+' </td><td> '+appDetail[1]+' </td><td> '+appDetail[2]+' </td></tr>';
+											}
+										}
+										strEmailBody += '</tr>';
+									}
+								}
+								strEmailBody += '</table>';
+								alert(strEmailBody);
+								document.write(strEmailBody);
 							</script>
 						</div>
 									

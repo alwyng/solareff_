@@ -32,17 +32,23 @@ function load()
 function createRooms()
 {
 	var table = document.getElementById("tblRooms");
+	table.innerHTML = "";
 	var arrStack = arrRooms;
 	var iRows = Math.trunc(arrRooms.length/2);
+	var iBtn = 0;
 	//alert(arrStack);
 	
 	for (var i = 0; i<=iRows; i++) {
 		var row = table.insertRow(table.rows.length);
 		for (var j = 0; j<2; j++) {
 			if (arrStack.length>0) {
+				iBtn++;
 				var cell = row.insertCell(j);
 				var btn = document.createElement('div');
 				btn.innerHTML = "<input type = 'button' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
+				if (iBtn>13) {
+					btn.innerHTML += '&nbsp<img src="../img/delete.gif" alt="Delete" onclick="removeRoom('+"'"+arrStack[0]+"'"+')">'; 
+				}
 				cell.appendChild(btn);
 				
 				//pop the first stack item
@@ -76,10 +82,21 @@ function addRoom()
 	arrRooms = localStorage.arrRooms.split(',');
 	arrRooms.push(txtRoom.value);
 	localStorage.arrRooms = arrRooms;
-	txtRoom.innerHTML = '';
+	txtRoom.value = '';
 	
-	var Table = document.getElementById("tblRooms");
-	Table.innerHTML = "";
+	createRooms();
+}
+
+function removeRoom(strRoom)
+{
+	arrRooms = localStorage.arrRooms.split(',');
+	for (var i=0;i<arrRooms.length;i++) {
+		if (arrRooms[i]==strRoom) {
+			arrRooms.splice(i,1);
+			i = arrRooms.length;
+		}
+	}
+	localStorage.arrRooms = arrRooms;
 	
 	createRooms();
 }

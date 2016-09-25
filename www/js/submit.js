@@ -1,6 +1,13 @@
 function load()
 {
 	recalc();
+	
+	/*validation - can't submit if no data*/
+	if (localStorage.kWh==0) {
+		var btnSubmit = getElementsByName('btnSubmit');
+		btnSubmit.disabled = true;
+		alert('No appliance information captured yet');
+	}
 }
 
 function submit()

@@ -3118,8 +3118,11 @@ html:not(.watch-active-state) .button:active,
 }
 .button.button-fill {
   color: #fff;
-  background: #007aff;
+  background: #d2232a;
   border: none;
+/*  height: 100%; 
+  width: 100%; 
+  box-sizing: border-box;*/
 }
 html:not(.watch-active-state) .button.button-fill:active,
 .button.button-fill.active-state {

@@ -78,10 +78,12 @@ function createRooms()
 				iBtn++;
 				var cell = row.insertCell(j);
 				var btn = document.createElement('div');
-				btn.innerHTML = "<input type = 'button' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
+
+				btn.innerHTML = "<input type = 'button' class='button button-fill' value = '"+arrStack[0]+"' onClick = 'gotoAdder(this.value)'>"; 
 				if (iBtn>13) {
 					btn.innerHTML += '&nbsp<img src="../img/delete.gif" alt="Delete" onclick="removeRoom('+"'"+arrStack[0]+"'"+')">'; 
 				}
+
 				cell.appendChild(btn);
 				
 				//pop the first stack item

@@ -55,10 +55,10 @@
             		<div class="page-content">
 				    <div class="app">
 						<a href="http://www.solareff.co.za">
-							<img src="img/logo.jpg">
+							<img style='width:100%;height:100%;object-fit: contain;' src="img/logo.jpg">
 						</a>
 						<br>
-						<form name="myform" action="">
+						<form style="padding-left:2%;" name="myform" action="">
 							<h3>Name</h3>
 							<input type="text" name="txtName">
 							<h3>Surname</h3>
@@ -68,9 +68,12 @@
 						</form>
 						<br>
 						<br>
-						<a href="data/main.html">
-							<input type="button" class="button button-big" onclick="captureEmail()" value="Continue...">
-						</a>
+						<div style="height: 5%; width: 100%; box-sizing: border-box; padding-left:10%;; padding-right:10%;">
+							<a href="data/main.html">
+								<input type="button" class="button button-fill" onclick="captureEmail()" value="Continue...">
+							</a>
+						</div>
+						<br>
 				    </div>
     				</div>
 				</div>

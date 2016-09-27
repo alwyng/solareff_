@@ -82,12 +82,12 @@
 						</table>
 						<br>
 						<script>
-							var arrApps = localStorage.getItem('arr'+localStorage.CurrentApp.replace(/ /g,'')+'App').split(',');
-							var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
-							var intSelectSize = arrApps.length-intDfltApps;
+							var arrApps = localStorage.arrApplianceList.split(',');
+							//var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
+							var intSelectSize = arrApps.length;
 							
 							document.write('<select id="lstAppPicker" size="'+intSelectSize+'">');//'+arrApps.length-intDfltApps+'">');
-							for (var i=intDfltApps;i<=arrApps.length-intDfltApps+1;i++) {
+							for (var i=0;i<arrApps.length;i++) {
 								document.write('<option>'+arrApps[i]+'</option>');
 							}
 							document.write('</select>');

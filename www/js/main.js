@@ -12,43 +12,45 @@ function load()
 	
 	//Room defaults*/
 	localStorage.arrKitchenApp = ["Stand alone Fridge","Oven","LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Fridge freezer combination","Stand alone freezer","Microwave","Kettle","Evap Cooler","Electric Hob","Coffee machine","Toaster"];
-	localStorage.intKitchenDefault = 2;
+	localStorage.intKitchenDefault = 14;
 	
 	localStorage.arrDiningRoomApp = ["LED lights","Flourescent lights","Ceiling Fan","Airconditioner"];
-	localStorage.intDiningRoomDefault = 1;
+	localStorage.intDiningRoomDefault = 4;
 	
 	localStorage.arrBedroom1App = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Clock radio","Hairdryer"];
-	localStorage.intBedroom1Default = 1;
+	localStorage.intBedroom1Default = 6;
 	
 	localStorage.arrBedroom2App = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Clock radio","Hairdryer"];
-	localStorage.intBedroom2Default = 1;
+	localStorage.intBedroom2Default = 6;
 	
 	localStorage.arrBedroom3App = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Clock radio","Hairdryer"];
-	localStorage.intBedroom3Default = 1;
+	localStorage.intBedroom3Default = 6;
 	
 	localStorage.arrBathroom1App = ["LED lights","Flourescent lights"];
-	localStorage.intBathroom1Default = 1;
+	localStorage.intBathroom1Default = 2;
 	
 	localStorage.arrBathroom2App = ["LED lights","Flourescent lights"];
-	localStorage.intBathroom2Default = 1;
+	localStorage.intBathroom2Default = 2;
 	
 	localStorage.arrBathroom3App = ["LED lights","Flourescent lights"];
-	localStorage.intBathroom3Default = 1;
+	localStorage.intBathroom3Default = 2;
 	
 	localStorage.arrLivingInsideApp = ["LED lights","TV","Ceiling Fan","Airconditioner","Flourescent lights","Wi-Fi modem","Radio","Decoders","Game console","Cordless phone"];
-	localStorage.intLivingInsideDefault = 2;
+	localStorage.intLivingInsideDefault = 10;
 	
 	localStorage.arrLivingOutsideApp = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights"];
-	localStorage.intLivingOutsideDefault = 1;
+	localStorage.intLivingOutsideDefault = 4;
 	
 	localStorage.arrSculleryApp = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Dishwasher","Vacuum cleaner"];
-	localStorage.intSculleryDefault = 1;
+	localStorage.intSculleryDefault = 6;
 	
 	localStorage.arrLaundryApp = ["LED lights","Ceiling Fan","Airconditioner","Flourescent lights","Washing machine","Tumble Dryer","Iron"];
-	localStorage.intLaundryDefault = 1;
+	localStorage.intLaundryDefault = 7;
 	
 	localStorage.arrGardenApp = ["Security lights (lights that operate during the night)","Electric Fence","Garage /  gate motors","Swimming pool pump"];
-	localStorage.intGardenDefault = 1;
+	localStorage.intGardenDefault = 4;
+	
+	localStorage.arrApplianceList = ["Security lights (lights that operate during the night)","LED lights","Flourescent lights","Electric Fence","Alarm","Wi-Fi modem","Clock radio","Garage /  gate motors","Radio","Laptops","Stand alone personal computer","Fridge freezer combination","Stand alone freezer","TV","Microwave","Washing machine","Tumble Dryer","Dishwasher","Kettle","Hairdryer","Vacuum cleaner","Iron","Heatpump geyser","Standard geyser (not recommended)","Swimming pool pump","Evap Cooler","Stand alone Fridge","Decoders","Oven","Electric Hob","Ceiliing Fan","Game console","Printer","Cordless phone","Airconditioner","Coffee machine","Toaster","Other (Text box to add to existing list)"];
 	
 	/*------------------------*/
 

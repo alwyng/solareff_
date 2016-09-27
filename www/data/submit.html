@@ -70,9 +70,25 @@
 				  setTimeout(function() {
 					try {
 						var arrRoomList = localStorage.roomList.split(';');
-						var strEmailBody = 'Name:'+localStorage.userName+'</br>;
-						strEmailBody += 'Surname:'+localStorage.userSurname+'</br>;
-						strEmailBody += 'Email:'+localStorage.userEmail+'</br></br>;
+						
+						//handle email body user details
+						var strEmailBody = 'Name:'+localStorage.userName+'</br>';
+						strEmailBody += 'Surname:'+localStorage.userSurname+'</br>';
+						strEmailBody += 'Email:'+localStorage.userEmail+'</br></br>';
+						
+						//Key questions
+						strEmailBody += 'Solar Geyser Size:'+localStorage.sizeSolGeyser+'</br>';				
+						strEmailBody += 'Solar Geyser Quantity:'+localStorage.QtySolGeyser+'</br>';					
+						strEmailBody += 'Electric Geyser Size:'+localStorage.SizeElecGeyser+'</br>';				
+						strEmailBody += 'Electric Geyser Quantity:'+localStorage.QtyElecGeyser+'</br>';				
+						strEmailBody += 'Gas Geyer Size:'+localStorage.SizeGasGeyser+'</br>';				
+						strEmailBody += 'Gas Geyer Quantity:'+localStorage.QtyGasGeyser+'</br>';					
+						strEmailBody += 'Heat Pump:'+localStorage.IsHeatPump+'</br>';					
+						strEmailBody += 'Geyser Blanket:'+localStorage.IsBlanket+'</br>';					
+						strEmailBody += 'Stove Type:'+localStorage.StoveType+'</br>';					
+						strEmailBody += 'Oven Type:'+localStorage.OvenType+'</br></br>';
+						
+						//Appliances
 						strEmailBody += '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
 						var arrRoomDetail;
 						

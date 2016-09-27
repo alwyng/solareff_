@@ -70,7 +70,10 @@
 				  setTimeout(function() {
 					try {
 						var arrRoomList = localStorage.roomList.split(';');
-						var strEmailBody = '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
+						var strEmailBody = 'Name:'+localStorage.userName+'</br>;
+						strEmailBody += 'Surname:'+localStorage.userSurname+'</br>;
+						strEmailBody += 'Email:'+localStorage.userEmail+'</br></br>;
+						strEmailBody += '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
 						var arrRoomDetail;
 						
 						for (var i=0;i<arrRoomList.length;i++) {

@@ -10,7 +10,14 @@ function captureEmail()
     }
 	
 	//store email address
-	
+	persist();
+}
+
+function persist() 
+{
+	localStorage.userName = getElementsByName('txtName');
+	localStorage.userSurname = getElementsByName('txtSurname');
+	localStorage.userEmail = getElementsByName('txtEmail');
 }
 
 function load()

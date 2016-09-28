@@ -64,7 +64,7 @@ function getState()
 		for (i = 0; i < arrApps.length-1; i++) {
 			var row = table.insertRow(table.rows.length);
 			var cell1 = row.insertCell(0);
-			cell1.innerHTML = arrApps[i].split(",")[0];
+			cell1.innerHTML = "<div style='width:200px;'>"+arrApps[i].split(",")[0]+"</div>";
 			//add the capture boxes
 			var hrs = document.createElement('input');
 			hrs.setAttribute('type', 'text');
@@ -162,7 +162,7 @@ function AddApp()
 	var row = table.insertRow(table.rows.length);
 	//add the selected appliance
 	var cell1 = row.insertCell(0);
-	cell1.innerHTML = txtAddApp;
+	cell1.innerHTML = "<div style='width:200px;'>"+txtAddApp+"</div>";
 	//add the capture boxes
     var hrs = document.createElement('input');
     hrs.setAttribute('type', 'text');

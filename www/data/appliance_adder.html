@@ -66,6 +66,7 @@
 											hrs.setAttribute('placeholder', 'Hours per Day');
 											hrs.setAttribute('id','defaulthrs');
 											hrs.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
+											hrs.addEventListener('change',persistTable);
 											var cell2 = row.insertCell(1);
 											cell2.appendChild(hrs);
 											var nbr = document.createElement('input');
@@ -73,6 +74,7 @@
 											nbr.setAttribute('placeholder', 'Quantity');
 											nbr.setAttribute('id','defaultnbr');
 											nbr.setAttribute('style','height: 100%; width: 100%; box-sizing: border-box');
+											nbr.addEventListener('change',persistTable);
 											var cell3 = row.insertCell(2);
 											cell3.appendChild(nbr);
 										}
@@ -81,6 +83,7 @@
 							</tr>
 						</table>
 						<br>
+						<div>Choose your appliance</div>
 						<script>
 							var arrApps = localStorage.arrApplianceList.split(',');
 							//var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');

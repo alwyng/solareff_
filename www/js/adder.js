@@ -106,13 +106,16 @@ function removeApp(app)
 
 function persistTable()
 {
+	//alert('t');
 	var table = document.getElementById("tblApp");
 	var strPersist = "";
+	//alert(strPersist);
 	for (var i = 0, row; row = table.rows[i]; i++) {
 	   
 		for (var j = 0, col; col = row.cells[j]; j++) {
 			var str = col.innerHTML;
 			var idx = str.indexOf('type="text"');
+			//alert(idx);
 			if (idx>-1) {
 				//App hrs and nbr
 				if (j==2) {
@@ -130,7 +133,7 @@ function persistTable()
 			}
 		}  
 	}
-	
+	//alert(strPersist);
 	//write to storage
 	localStorage.setItem(localStorage.CurrentApp.replace(/ /g,''),strPersist);
 	//alert(localStorage.getItem(localStorage.CurrentApp.replace(/ /g,'')));

@@ -5,12 +5,23 @@ function recalc()
 	if (localStorage.getItem("roomList")!=null) {
 		var roomList = localStorage.getItem("roomList");
 		var arrRooms = roomList.split(";");
+
+		//alert(arrRooms);
 		for (var i=0;i<arrRooms.length;i++) {
 			var roomDetail = localStorage.getItem(arrRooms[i]);
 			var arrRoomDetail = roomDetail.split(";");
-			for (j=0;j<arrRoomDetail.length;j++) {
+
+			//alert(localStorage.Bathroom1);
+			//alert(arrRoomDetail);
+			for (var j=0;j<arrRoomDetail.length/* && arrRoomDetail[j]!='' && arrRoomDetail[j]!=null*/;j++) {
+				//alert(arrRoomDetail[j]);
 				var arrDetails = arrRoomDetail[j].split(",");
-				if (arrDetails[1]!=null && arrDetails[2]!=null) {
+				/*alert(arrDetails[1]);
+				alert('and');
+				alert(arrDetails[2]);
+				alert('---');*/
+				if (arrDetails[1]!=null && arrDetails[1]!='' && arrDetails[2]!=null && arrDetails[2]!='') {
+					//alert('go');
 					intKwh += arrDetails[1]*arrDetails[2];
 				}
 			}
@@ -22,5 +33,6 @@ function recalc()
 		localStorage.kWh = 0;
 	}
 
+	//alert('done');
 	document.frmKwh.txtKwh.value = localStorage.kWh+" kWh";
 }

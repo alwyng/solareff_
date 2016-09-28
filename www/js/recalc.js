@@ -13,12 +13,12 @@ function recalc()
 			for (var j=0;j<arrRoomDetail.length/* && arrRoomDetail[j]!='' && arrRoomDetail[j]!=null*/;j++) {
 				var arrDetails = arrRoomDetail[j].split(",");
 				if (arrDetails[1]!=null && arrDetails[1]!='' && arrDetails[2]!=null && arrDetails[2]!='') {
-					
-					intKwh += arrDetails[1]*arrDetails[2]*getKwh(arrDetails[0])/1000;
+
+					intKwh += Math.round(arrDetails[1]*arrDetails[2]*getKwh(arrDetails[0])/1000*10)/10;
 				}
 			}
 		}
-		
+
 		localStorage.kWh = intKwh;
 	} else {
 		localStorage.kWh = 0;

@@ -51,7 +51,8 @@ function load()
 	localStorage.intGardenDefault = 4;
 	
 	localStorage.arrApplianceList = ["Security lights (lights that operate during the night)","LED lights","Flourescent lights","Electric Fence","Alarm","Wi-Fi modem","Clock radio","Garage /  gate motors","Radio","Laptops","Stand alone personal computer","Fridge freezer combination","Stand alone freezer","TV","Microwave","Washing machine","Tumble Dryer","Dishwasher","Kettle","Hairdryer","Vacuum cleaner","Iron","Heatpump geyser","Standard geyser (not recommended)","Swimming pool pump","Evap Cooler","Stand alone Fridge","Decoders","Oven","Electric Hob","Ceiliing Fan","Game console","Printer","Cordless phone","Airconditioner","Coffee machine","Toaster","Other (Text box to add to existing list)"];
-	
+	localStorage.arrApplianceWattList = ["11","5","56","30","10","50","30","150","200","90","500","250","200","150","900","700","3000","2000","1000","1500","1000","1000","1000","3000","1000","750","180","20","2400","750","25","30","160","2","500","3000","3600"];
+
 	/*------------------------*/
 
 	//set to true for debug mode

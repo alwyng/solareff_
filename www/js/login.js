@@ -22,7 +22,7 @@ function persist()
 
 function load()
 {
-	localStorage.clear();
+	//localStorage.clear();
 	recalc();
 }
 

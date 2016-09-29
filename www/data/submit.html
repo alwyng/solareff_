@@ -187,11 +187,12 @@
 	          <div class="navbar-inner">
 	        	<div class="left sliding"><a href="main.html" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>	            	
 	            <div class="center sliding">
-					<form class="center" name="frmKwh" action="">
-						<input type="text" name="txtKwh" disabled>
-					</form>
+	            	Submission
 				</div>
-	            <div class="right sliding">Sunmission
+	            <div class="right sliding">
+	   				<form class="center" name="frmKwh" action="">
+						<input size="9" class="kwhstyle" type="text" name="txtKwh" disabled>
+					</form>
 	            </div>
 	          </div>
 	        </div>
@@ -205,14 +206,14 @@
 						<!--<form class="center" name="frmKwh" action="">
 							<input type="text" name="txtKwh" disabled>
 						</form>-->
-						<h3>Submit to Solareff</h3>
+						<h3 style="padding-left:2%;">Submit to Solareff</h3>
 						<!--<a href="main.html">
 							<input type="button" name="btnBack" value="Back">
 						</a>-->
 						<script type="text/javascript" src="../cordova.js"></script>
 						<script type="text/javascript" src="../js/index.js"></script>
 						
-						<div>
+						<div style="padding-left:2%;">
 							<script>
 								/*var arrRoomList = localStorage.roomList.split(';');
 								var strEmailBody = 'Room,Quantity,Number Items\n';
@@ -263,7 +264,8 @@
 						<br>
 						<div style="height: 5%; width: 100%; box-sizing: border-box; padding-left:10%;; padding-right:10%;">									
 							<input class="button button-fill" type="button" name="btnSubmit" onclick="capturePhoto();" value="Take photo and submit information">
-						</div>		
+						</div>
+						<br>		
 						</div>				
 									</div>
 								</div>

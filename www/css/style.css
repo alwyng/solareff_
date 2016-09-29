@@ -34,3 +34,13 @@ img.centered {
 form.center {
 	text-align: center;
 }
+
+.kwhstyle {
+	text-align: center;
+	width: 100%;
+	font-size:170%;
+	font-family: monospace;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}

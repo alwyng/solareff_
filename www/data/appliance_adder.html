@@ -25,10 +25,13 @@
 	        <div class="navbar">
 	          <div class="navbar-inner">
 			    <div class="left sliding"><a href="main.html" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-	            <div class="center sliding"><form class="center" name="frmKwh" action="">
-							<input type="text" name="txtKwh" disabled>
-						</form></div>
-	            <div class="right sliding" > Add Appliance
+	            <div class="center sliding">
+	            	Add Appliance	            	
+	            </div>
+	            <div class="right sliding">
+	   				<form class="center" name="frmKwh" action="">
+						<input size="9" class="kwhstyle" type="text" name="txtKwh" disabled>
+					</form>
 	            </div>
 	          </div>
 	        </div>
@@ -38,17 +41,22 @@
             			<div class="app">
 						<a href="http://www.solareff.co.za">
 							<img style='width:100%;height:100%;object-fit: contain;' src="../img/logo.jpg">
-						</a>
 
+						</a>  
 						<br>
-						<script>
-							document.write(localStorage.CurrentApp);
-						</script>
+						<br>
+						<div style="height: 5%; width: 100%; box-sizing: border-box; padding-left:25%;; padding-right:25%;">
+							<div style="padding-left:2%;font-size: 1.5em;" class="button button-fill">
+								<script> 
+									document.write(localStorage.CurrentApp);
+								</script>
+							</div>
+						</div>
 						<!--<a href="main.html">
 							<input type="button" name="btnBack" value="Back">
 						</a>
 						<br><br>-->
-						<table id="tblApp">
+						<table id="tblApp" style="padding-left:2%;font-size: 1.5em;">
 							<tr style="background-color:white">
 								<script>
 									if (localStorage.getItem(localStorage.CurrentApp.replace(/ /g,''))==null) {
@@ -59,7 +67,7 @@
 											var table = document.getElementById("tblApp");
 											var row = table.insertRow(table.rows.length);
 											var cell1 = row.insertCell(0);
-											cell1.innerHTML = arrApps[i];
+											cell1.innerHTML = "<div style='width:200px;'>"+arrApps[i]+"</div>";
 											//add the capture boxes
 											var hrs = document.createElement('input');
 											hrs.setAttribute('type', 'text');
@@ -83,20 +91,28 @@
 							</tr>
 						</table>
 						<br>
-						<div>Choose your appliance</div>
-						<script>
-							var arrApps = localStorage.arrApplianceList.split(',');
-							//var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
-							var intSelectSize = arrApps.length;
 
-							document.write('<select id="lstAppPicker" size="'+intSelectSize+'">');//'+arrApps.length-intDfltApps+'">');
-							for (var i=0;i<arrApps.length;i++) {
-								document.write('<option>'+arrApps[i]+'</option>');
-							}
-							document.write('</select>');
-						</script>
+						<div style="height: 5%; width: 100%; box-sizing: border-box; padding-left:25%;; padding-right:25%;">
+						<div>Choose your appliance</div>
+							<script>
+								var arrApps = localStorage.arrApplianceList.split(',');
+								//var intDfltApps = localStorage.getItem('int'+localStorage.CurrentApp.replace(/ /g,'')+'Default').split(',');
+								var intSelectSize = arrApps.length;
+								
+								document.write('<select id="lstAppPicker" size="'+intSelectSize+'">');//'+arrApps.length-intDfltApps+'">');
+								for (var i=0;i<arrApps.length;i++) {
+									document.write('<option>'+arrApps[i]+'</option>');
+								}
+								document.write('</select>');
+							</script>
+						</div>
 						<br>
-						<input type="button" name="btnAdd" value="Add appliance" onclick="AddApp()">
+				
+						<div style="height: 5%; width: 100%; box-sizing: border-box; padding-left:25%;; padding-right:25%;">
+							<input type="button" class="button button-fill" name="btnAdd" value="Add appliance" onclick="AddApp()">
+						</div>
+
+						<br>
 						<!--<br>
 						<br>
 						<br>

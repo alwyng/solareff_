@@ -108,7 +108,7 @@
 							}
 						}
 						strEmailBody += '</table>';
-						alert(strEmailBody);
+						//alert(strEmailBody);
 					
 						cordova.plugins.email.open({
 							to:      'paul@solareff.co.za',
@@ -250,7 +250,9 @@
 										for (var j=0;j<arrRoomDetail.length;j++) {
 											if (arrRoomDetail[j]!="") {
 												var appDetail = arrRoomDetail[j].split(',');
-												strEmailBody += '<tr><td> '+appDetail[0]+' </td><td> '+appDetail[1]+' </td><td> '+appDetail[2]+' </td></tr>';
+												if (appDetail[1]!='' && appDetail[2]!='') {
+													strEmailBody += '<tr><td> '+appDetail[0]+' </td><td> '+appDetail[1]+' </td><td> '+appDetail[2]+' </td></tr>';
+												}
 											}
 										}
 										strEmailBody += '</tr>';

@@ -15,14 +15,22 @@ function captureEmail()
 
 function persist() 
 {
-	localStorage.userName = getElementsByName('txtName');
-	localStorage.userSurname = getElementsByName('txtSurname');
-	localStorage.userEmail = getElementsByName('txtEmail');
+	localStorage.userName = document.getElementById("txtName").value; 
+	localStorage.userSurname = document.getElementById('txtSurname').value;
+	localStorage.userEmail = document.getElementById('txtEmail').value;
+}
+
+function populate()
+{
+	if (localStorage.userName!=null) {document.getElementById('txtName').value=localStorage.userName} else {document.getElementById('txtName').value=''};
+	if (localStorage.userSurname!=null) {document.getElementById('txtSurname').value=localStorage.userSurname} else {document.getElementById('txtSurname').value=''};
+	if (localStorage.userEmail!=null) {document.getElementById('txtEmail').value=localStorage.userEmail} else {document.getElementById('txtEmail').value=''};
 }
 
 function load()
 {
 	//localStorage.clear();
+	populate();
 	recalc();
 }
 

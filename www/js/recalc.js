@@ -24,7 +24,7 @@ function recalc()
 		localStorage.kWh = 0;
 	}
 
-	//alert('done');
+	alert(localStorage.kWh);
 	document.frmKwh.txtKwh.value = localStorage.kWh+" kWh";
 }
 

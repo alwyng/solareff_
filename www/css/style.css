@@ -44,3 +44,8 @@ form.center {
 	color: white;
 	background-color: black;
 }
+
+.dropdowntyle {
+	width: 6em;
+	background-color: #007aff;
+}

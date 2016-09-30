@@ -72,24 +72,24 @@
 						var arrRoomList = localStorage.roomList.split(';');
 						
 						//handle email body user details
-						var strEmailBody = 'Name:'+localStorage.userName+'</br>';
-						strEmailBody += 'Surname:'+localStorage.userSurname+'</br>';
-						strEmailBody += 'Email:'+localStorage.userEmail+'</br></br>';
+						var strEmailBody = 'Name: '+localStorage.userName+'\r\n';
+						strEmailBody += 'Surname: '+localStorage.userSurname+'\r\n';
+						strEmailBody += 'Email: '+localStorage.userEmail+'\r\n';
 						
 						//Key questions
-						strEmailBody += 'Solar Geyser Size:'+localStorage.sizeSolGeyser+'</br>';				
-						strEmailBody += 'Solar Geyser Quantity:'+localStorage.QtySolGeyser+'</br>';					
-						strEmailBody += 'Electric Geyser Size:'+localStorage.SizeElecGeyser+'</br>';				
-						strEmailBody += 'Electric Geyser Quantity:'+localStorage.QtyElecGeyser+'</br>';				
-						strEmailBody += 'Gas Geyer Size:'+localStorage.SizeGasGeyser+'</br>';				
-						strEmailBody += 'Gas Geyer Quantity:'+localStorage.QtyGasGeyser+'</br>';					
-						strEmailBody += 'Heat Pump:'+localStorage.IsHeatPump+'</br>';					
-						strEmailBody += 'Geyser Blanket:'+localStorage.IsBlanket+'</br>';					
-						strEmailBody += 'Stove Type:'+localStorage.StoveType+'</br>';					
-						strEmailBody += 'Oven Type:'+localStorage.OvenType+'</br></br>';
+						strEmailBody += 'Solar Geyser Size: '+localStorage.sizeSolGeyser+'\r\n';				
+						strEmailBody += 'Solar Geyser Quantity: '+localStorage.QtySolGeyser+'\r\n';					
+						strEmailBody += 'Electric Geyser Size: '+localStorage.SizeElecGeyser+'\r\n';				
+						strEmailBody += 'Electric Geyser Quantity: '+localStorage.QtyElecGeyser+'\r\n';				
+						strEmailBody += 'Gas Geyer Size: '+localStorage.SizeGasGeyser+'\r\n';				
+						strEmailBody += 'Gas Geyer Quantity: '+localStorage.QtyGasGeyser+'\r\n';					
+						strEmailBody += 'Heat Pump: '+localStorage.IsHeatPump+'\r\n';					
+						strEmailBody += 'Geyser Blanket: '+localStorage.IsBlanket+'\r\n';					
+						strEmailBody += 'Stove Type: '+localStorage.StoveType+'\r\n';					
+						strEmailBody += 'Oven Type: '+localStorage.OvenType+'\r\n';
 						
 						//Appliances
-						strEmailBody += '<table><tr><td>Room/Appliance</td><td>Quantity</td><td>Number Items</td></tr>';
+						strEmailBody += 'Room/Appliance\tQuantity\tNumber Items\r\n';
 						var arrRoomDetail;
 						
 						for (var i=0;i<arrRoomList.length;i++) {
@@ -97,17 +97,20 @@
 							var roomList = localStorage.getItem(arrRoomList[i]);
 							if (roomList!=null) {
 								arrRoomDetail = roomList.split(';');
-								strEmailBody += '<tr><td> '+arrRoomList[i]+' </td></tr><tr>';
+								strEmailBody += '\t '+arrRoomList[i]+'\r\n';
 								for (var j=0;j<arrRoomDetail.length;j++) {
 									if (arrRoomDetail[j]!="") {
 										var appDetail = arrRoomDetail[j].split(',');
-										strEmailBody += '<tr><td> '+appDetail[0]+' </td><td> '+appDetail[1]+' </td><td> '+appDetail[2]+' </td></tr>';
+										if (appDetail[1]!='' && appDetail[2]!='') {
+											strEmailBody += '\t '+appDetail[0]+' \t '+appDetail[1]+' \t '+appDetail[2]+'\r\n';
+										}
 									}
 								}
-								strEmailBody += '</tr>';
+								strEmailBody += '';
+								//alert(strEmailBody);
 							}
 						}
-						strEmailBody += '</table>';
+						strEmailBody += '';
 						//alert(strEmailBody);
 					
 						cordova.plugins.email.open({
@@ -261,6 +264,12 @@
 								strEmailBody += '</table>';
 								//alert(strEmailBody);
 								document.write(strEmailBody);
+								
+								
+								
+								
+								
+								
 							</script>
 						</div>
 						<br>

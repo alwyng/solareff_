@@ -32,11 +32,13 @@ function setRoomList()
 		var arrRooms = roomList.split(";");
 		if (arrRooms.indexOf(localStorage.CurrentApp.replace(/ /g,'')) < 0) {
 			arrRooms.push(localStorage.CurrentApp.replace(/ /g,''));
+			localStorage.setItem(localStorage.CurrentApp.replace(/ /g,''),"");
 		}
 		roomList = arrRooms.join(";");
 		localStorage.setItem("roomList",roomList);
 	} else {
 		localStorage.setItem("roomList",localStorage.CurrentApp.replace(/ /g,''));
+		localStorage.setItem(localStorage.CurrentApp.replace(/ /g,''),"");
 	}
 }
 

@@ -24,7 +24,7 @@ function recalc()
 		}
 
 		//alert('e');
-		localStorage.kWh = intKwh;
+		localStorage.kWh = Math.round(intKwh*10)/10;
 	} else {
 		//alert('f');
 		localStorage.kWh = 0;

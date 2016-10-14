@@ -3,12 +3,11 @@ function load()
 {
 
 	//localStorage.clear();
-	getAdderDescr();
-	getkWh();
-	getState();
-	setEvents();
-	setRoomList();
-	setDebug();
+	getkWh();   //populate kWh box
+	getState();    //populate previous appliance values
+	setEvents();   //add change events to boxes
+	//setRoomList();  //persist roomlist i.e. if room is not added then add
+	setDebug();   //future use
 }
 
 function setDebug()
@@ -148,13 +147,11 @@ function persistTable()
 
 	//make sure to recalculate kWh
 	recalc();
+	
+	//persist roomlist i.e. if room is not added then add
+	setRoomList();  //this is not the correct place as it increases overhead. need to change this logic at some stage
 
 	setDebug();
-}
-
-function getAdderDescr()
-{
-
 }
 
 function getkWh()

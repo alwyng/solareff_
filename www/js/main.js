@@ -1,6 +1,10 @@
 
 function load()
 {
+	//localStorage.clear();
+	//alert(localStorage.getItem(roomList);
+	//alert(localStorage.getItem(arrRooms));
+	
 	/*Declare global variables*/
 	arrRooms = ["Kitchen","Dining Room","Bedroom 1","Bathroom 1","Bedroom 2","Bathroom 2","Bedroom 3","Bathroom 3","Living Inside","Living Outside","Scullery","Laundry","Garden"];
 	if (localStorage.arrRooms==null) {
@@ -136,5 +140,19 @@ function removeRoom(strRoom)
 	}
 	localStorage.arrRooms = arrRooms;
 	
+	roomList = localStorage.roomList.split(';');
+	for (var i=0;i<roomList.length;i++) {
+		if (roomList[i]==strRoom) {
+			roomList.splice(i,1);
+			i = roomList.length;
+		}
+	}
+	roomList = roomList.join(";");
+	localStorage.roomList = roomList;
+	
+	localStorage.removeItem(strRoom);
+	
 	createRooms();
+	
+	recalc();
 }

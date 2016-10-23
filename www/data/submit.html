@@ -113,13 +113,21 @@
 						strEmailBody += '';
 						//alert(strEmailBody);
 					
-						cordova.plugins.email.open({
-							to:      'paul@solareff.co.za',
+						/*cordova.plugins.email.open({
+							to:      'alwyn.grobler@gmail.com',//'paul@solareff.co.za',
 							cc:      [],
 							bcc:     [],
 							subject: 'Solareff App Result',
 							body:    strEmailBody,
 							attachments: 'base64:bill.jpg//'+imageData
+						});*/
+						
+						cordova.plugins.email.open({
+							to:      'alwyn.grobler@gmail.com',//'paul@solareff.co.za',
+							cc:      [],
+							bcc:     [],
+							subject: 'Solareff App Result',
+							body:    'test'
 						});
 						
 						window.location.href = 'thankyou.html';

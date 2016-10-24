@@ -121,7 +121,7 @@
 							body:    strEmailBody,
 							attachments: 'base64:bill.jpg//'+imageData
 						});*/
-						
+						alert('bef');
 						cordova.plugins.email.open({
 							to:      'alwyn.grobler@gmail.com',//'paul@solareff.co.za',
 							cc:      [],
@@ -129,6 +129,7 @@
 							subject: 'Solareff App Result',
 							body:    'test'
 						});
+						alert('aft');
 						
 						window.location.href = 'thankyou.html';
 					}

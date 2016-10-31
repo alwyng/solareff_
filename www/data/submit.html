@@ -1,184 +1,15 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-	    <meta name="mobile-web-app-capable" content="yes">
-	    <meta name="apple-mobile-web-app-capable" content="yes">
-	    <meta name="apple-mobile-web-app-status-bar-style" content="black">		
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
 		<title>Solareff</title>
-		<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
-		<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-		<script type="text/javascript" charset="utf-8" src="../js/index.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			var pictureSource;   // picture source
-			var destinationType; // sets the format of returned value
-
-			// device APIs are available
-			//
-			function onDeviceReady() 
-			{
-				pictureSource=navigator.camera.PictureSourceType;
-				destinationType=navigator.camera.DestinationType;
-			}
-			
-			
-			function onFail(message) 
-			{
-				setTimeout(function() {
-					alert('Failed because: ' + message);
-				}, 0);
-				
-			}
-			
-			function onPhotoDataSuccess(imageData) 
-			{
-					
-				  // Uncomment to view the base64-encoded image data
-				  // console.log(imageData);
-
-				  // Get image handle
-				  //
-				  //var smallImage = document.getElementById('smallImage');
-
-				  // Unhide image elements
-				  //
-				  //smallImage.style.display = 'block';
-
-				  // Show the captured photo
-				  // The in-line CSS rules are used to resize the image
-				  //
-				  //alert('222');
-				  //smallImage.src = "data:image/jpeg;base64," + imageData;
-				 
-				  //document.getElementById('myP').innerHTML = imageData;
-				  
-				  //alert('333');
-				  
-				  setTimeout(function() {
-					try {
-						var arrRoomList = localStorage.roomList.split(';');
-						
-						//handle email body user details
-						var strEmailBody = 'Name: '+localStorage.userName+'\r\n';
-						strEmailBody += 'Surname: '+localStorage.userSurname+'\r\n';
-						strEmailBody += 'Email: '+localStorage.userEmail+'\r\n';
-						
-						//Key questions
-						strEmailBody += 'Solar Geyser Size: '+localStorage.sizeSolGeyser+'\r\n';				
-						strEmailBody += 'Solar Geyser Quantity: '+localStorage.QtySolGeyser+'\r\n';					
-						strEmailBody += 'Electric Geyser Size: '+localStorage.SizeElecGeyser+'\r\n';				
-						strEmailBody += 'Electric Geyser Quantity: '+localStorage.QtyElecGeyser+'\r\n';				
-						strEmailBody += 'Gas Geyer Size: '+localStorage.SizeGasGeyser+'\r\n';				
-						strEmailBody += 'Gas Geyer Quantity: '+localStorage.QtyGasGeyser+'\r\n';					
-						strEmailBody += 'Heat Pump: '+localStorage.IsHeatPump+'\r\n';					
-						strEmailBody += 'Geyser Blanket: '+localStorage.IsBlanket+'\r\n';					
-						strEmailBody += 'Stove Type: '+localStorage.StoveType+'\r\n';					
-						strEmailBody += 'Oven Type: '+localStorage.OvenType+'\r\n';
-						
-						//Appliances
-						strEmailBody += 'Room/Appliance\tQuantity\tNumber Items\r\n';
-						var arrRoomDetail;
-						
-						for (var i=0;i<arrRoomList.length;i++) {
-							
-							var roomList = localStorage.getItem(arrRoomList[i]);
-							if (roomList!=null) {
-								arrRoomDetail = roomList.split(';');
-								strEmailBody += '\t '+arrRoomList[i]+'\r\n';
-								for (var j=0;j<arrRoomDetail.length;j++) {
-									if (arrRoomDetail[j]!="") {
-										var appDetail = arrRoomDetail[j].split(',');
-										if (appDetail[1]!='' && appDetail[2]!='') {
-											strEmailBody += '\t '+appDetail[0]+' \t '+appDetail[1]+' \t '+appDetail[2]+'\r\n';
-										}
-									}
-								}
-								strEmailBody += '';
-								//alert(strEmailBody);
-							}
-						}
-						strEmailBody += '';
-						//alert(strEmailBody);
-					
-						/*cordova.plugins.email.open({
-							to:      'alwyn.grobler@gmail.com',//'paul@solareff.co.za',
-							cc:      [],
-							bcc:     [],
-							subject: 'Solareff App Result',
-							body:    strEmailBody,
-							attachments: 'base64:bill.jpg//'+imageData
-						});*/
-						alert('bef');
-						cordova.plugins.email.open({
-							to:      'alwyn.grobler@gmail.com',//'paul@solareff.co.za',
-							cc:      [],
-							bcc:     [],
-							subject: 'Solareff App Result',
-							body:    'test'
-						});
-						alert('aft');
-						
-						window.location.href = 'thankyou.html';
-					}
-					catch(err) {
-						alert(err.message);
-					}
-					//alert('444.1');
-				  }, 0);
-				  
-				  //alert('444.2');
-			}
-			
-			function capturePhoto() 
-			{
-				try
-				{
-					// Take picture using device camera and retrieve image as base64-encoded string
-					navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: Camera.DestinationType.DATA_URL });
-					//onPhotoDataSuccess(null);
-				}
-				catch(err) {
-					alert(err.message);
-				}
-			}
-		
-			function getBase64Image(img) {
-				// Create an empty canvas element
-				var canvas = document.createElement("canvas");
-				canvas.width = img.width;
-				canvas.height = img.height;
-
-				// Copy the image contents to the canvas
-				var ctx = canvas.getContext("2d");
-				ctx.drawImage(img, 0, 0);
-
-				// Get the data-URL formatted image
-				// Firefox supports PNG and JPEG. You could check img.src to
-				// guess the original format, but be aware the using "image/jpg"
-				// will re-encode the image.
-				var dataURL = canvas.toDataURL("image/png");
-
-				return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-			}
-			
-			function test()
-			{
-				var image = document.getElementById('myImage');
-				
-			}
-			
-		</script>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" />
-	    <link rel="stylesheet" href="../css/framework7.ios.css">
-	    <link rel="stylesheet" href="../css/framework7.ios.colors.css">
-	    <link rel="stylesheet" href="../css/kitchen-sink.css">
-	    <link rel="icon" href="../res/icon/img/logo.png">
-	    <link rel="apple-touch-icon" href="../res/icon/img/logo.png">		
-		<script src="../js/recalc.js"></script>
-		<script src="../js/submit.js"></script>
 	</head>
-	<body onload="load()">
+<body onload="load()">
 	    <div class="statusbar-overlay">    	
 	    </div>
 	    <div class="views">
@@ -288,8 +119,69 @@
 							</div>			
 	       </div>
 	      </div>	          	    
-		<script>
-			document.addEventListener("deviceready",onDeviceReady,false);
+
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+		<script type="text/javascript">
+            var dialog;
+
+            showToast = function (text) {
+                text = text == null ? 'finished or canceled' : text;
+
+                setTimeout(function () {
+                    if (window.Windows !== undefined) {
+                        showWinDialog(text);
+                    } else
+                    if (window.plugins && window.plugins.toast) {
+                        window.plugins.toast.showShortBottom(String(text));
+                    }
+                    else {
+                        alert(text);
+                    }
+                }, 100);
+            };
+
+            document.addEventListener('deviceready', function () {
+                if (device.platform == 'windows') {
+                    window.alert = function (msg) {
+                        new Windows.UI.Popups.MessageDialog(msg).showAsync();
+                    };
+                }
+            }, false);
+			
+            chooseAttachment = function (source) {
+
+                if (device.platform == 'Win32NT') {
+                    alert('Not supported on WP8.0 and WP8.1 Silverlight!');
+                    return;
+                }
+
+                var options = {
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType: source === undefined ? Camera.PictureSourceType.CAMERA : source
+                };
+
+                var failure = function () {
+                    if (source === undefined)
+                        chooseAttachment(Camera.PictureSourceType.PHOTOLIBRARY);
+                };
+
+                navigator.camera.getPicture(function(uri) {
+                    var fn = function () {
+                            cordova.plugins.email.open({
+                                subject: 'Attachment from file system',
+                                body: uri,
+                                attachments: uri
+                            }, showToast);
+                        };
+
+                    setTimeout(fn, 500);
+                }, failure, options);
+            };
 		</script>
-	</body>
-</html>
+</body>

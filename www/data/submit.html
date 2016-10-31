@@ -9,13 +9,10 @@
 		<title>Solareff</title>
 		<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/index.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			var pictureSource;   // picture source
 			var destinationType; // sets the format of returned value
-
-			// Wait for device API libraries to load
-			//
-			document.addEventListener("deviceready",onDeviceReady,false);
 
 			// device APIs are available
 			//
@@ -23,17 +20,8 @@
 			{
 				pictureSource=navigator.camera.PictureSourceType;
 				destinationType=navigator.camera.DestinationType;
-				alert('submit ready');
 			}
 			
-			document.addEventListener("deviceready",onDeviceReady,false);
-			function onDeviceReady()
-			{
-				/*if (cordova.plugins.email) {
-					alert('Cordova available');
-				};
-				alert('Device Ready');*/
-			}
 			
 			function onFail(message) 
 			{
@@ -300,5 +288,8 @@
 							</div>			
 	       </div>
 	      </div>	          	    
+		<script>
+			document.addEventListener("deviceready",onDeviceReady,false);
+		</script>
 	</body>
 </html>

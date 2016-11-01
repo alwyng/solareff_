@@ -6,6 +6,7 @@ function persist()
 	localStorage.QtyElecGeyser = document.getElementById('txtQtyElecGeyser').value;				
 	localStorage.SizeGasGeyser = document.getElementById('txtSizeGasGeyser').value;				
 	localStorage.QtyGasGeyser = document.getElementById('txtQtyGasGeyser').value;					
+	localStorage.selIsTimer = document.getElementById('selIsTimer').value;					
 	localStorage.IsHeatPump = document.getElementById('selIsHeatPump').value;					
 	localStorage.IsBlanket = document.getElementById('selIsBlanket').value;					
 	localStorage.StoveType = document.getElementById('selStoveType').value;					
@@ -20,6 +21,7 @@ function load()
 	if (localStorage.QtyElecGeyser!=null) {document.getElementById('txtQtyElecGeyser').value = localStorage.QtyElecGeyser} else {document.getElementById('txtQtyElecGeyser').value =''};				
 	if (localStorage.SizeGasGeyser!=null) {document.getElementById('txtSizeGasGeyser').value = localStorage.SizeGasGeyser} else {document.getElementById('txtSizeGasGeyser').value =''};				
 	if (localStorage.QtyGasGeyser!=null) {document.getElementById('txtQtyGasGeyser').value = localStorage.QtyGasGeyser} else {document.getElementById('txtQtyGasGeyser').value =''};					
+	if (localStorage.IsTimer!=null) {document.getElementById('selIsTimer').value = localStorage.IsTimer} else {document.getElementById('selIsTimer').value ='No'};					
 	if (localStorage.IsHeatPump!=null) {document.getElementById('selIsHeatPump').value = localStorage.IsHeatPump} else {document.getElementById('selIsHeatPump').value ='No'};					
 	if (localStorage.IsBlanket!=null) {document.getElementById('selIsBlanket').value = localStorage.IsBlanket} else {document.getElementById('selIsBlanket').value ='No'};					
 	if (localStorage.StoveType!=null) {document.getElementById('selStoveType').value = localStorage.StoveType} else {document.getElementById('selStoveType').value ='Gas'};					

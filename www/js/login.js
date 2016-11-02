@@ -29,7 +29,7 @@ function populate()
 
 function load()
 {
-	localStorage.clear();
+	//localStorage.clear();
 	populate();
 	recalc();
 }

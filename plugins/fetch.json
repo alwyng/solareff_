@@ -10,12 +10,14 @@
     },
     "cordova-plugin-camera": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-camera.git",
-            "subdir": "."
+            "type": "registry",
+            "id": "cordova-plugin-camera@2.3.0"
         },
         "is_top_level": true,
-        "variables": {}
+        "variables": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+        }
     },
     "cordova-plugin-file": {
         "source": {

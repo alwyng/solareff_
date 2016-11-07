@@ -53,9 +53,15 @@ function section() {
 	if (localStorage.getItem('isSubmit')==1) {
 		div = document.getElementById('submit');
 		div.style.display = 'block';
+		
+		div = document.getElementById('login');
+		div.style.display = 'none';
 	} else 
 	if (localStorage.getItem('isSubmit')==0/* or localStorage.getItem('isSubmit')==null*/) {
 		div = document.getElementById('submit');
 		div.style.display = 'none';
+		
+		div = document.getElementById('login');
+		div.style.display = 'block';
 	}
 }

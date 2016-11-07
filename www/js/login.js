@@ -30,8 +30,10 @@ function populate()
 function load()
 {
 	//localStorage.clear();
+	
 	populate();
-	recalc();
+	//recalc();
+	section();
 }
 
 function storageAvailable(type) {
@@ -44,5 +46,16 @@ function storageAvailable(type) {
 	}
 	catch(e) {
 		return false;
+	}
+}
+
+function section() {
+	if (localStorage.getItem('isSubmit')==1) {
+		div = document.getElementById('submit');
+		div.style.display = 'block';
+	} else 
+	if (localStorage.getItem('isSubmit')==0/* or localStorage.getItem('isSubmit')==null*/) {
+		div = document.getElementById('submit');
+		div.style.display = 'none';
 	}
 }

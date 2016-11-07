@@ -1,6 +1,7 @@
 
 function load()
 {
+	localStorage.isSubmit = '0';
 	//localStorage.clear();
 	//alert(localStorage.getItem(roomList);
 	//alert(localStorage.getItem(arrRooms));
@@ -155,4 +156,10 @@ function removeRoom(strRoom)
 	createRooms();
 	
 	recalc();
+}
+
+function setSubmit() 
+{
+	localStorage.isSubmit = 1;
+	alert('submit set');
 }

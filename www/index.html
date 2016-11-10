@@ -25,6 +25,7 @@
 			<h2 class="section">Attachments</h2>
 			<div class="container">
 				<div onclick="chooseAttachment()">Submit<br/></div>
+				<input type="button" class="button button-fill" onclick="chooseAttachment()" value="Submit...">
 			</div>
 		</div>
 
@@ -194,7 +195,7 @@
             };
 
             chooseAttachment = function (source) {
-
+				alert("chooseAttachment Started")
                 if (device.platform == 'Win32NT') {
                     alert('Not supported on WP8.0 and WP8.1 Silverlight!');
                     return;

@@ -7,17 +7,20 @@
         "files": {}
     },
     "installed_plugins": {
-        "de.appplant.cordova.plugin.email-composer": {
-            "PACKAGE_NAME": "com.greenlight.solareff"
-        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.greenlight.solareff"
+            "PACKAGE_NAME": "de.appplant.cordova.plugin.emailcomposer.example"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.greenlight.solareff"
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "de.appplant.cordova.plugin.emailcomposer.example"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "de.appplant.cordova.plugin.emailcomposer.example"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "de.appplant.cordova.plugin.emailcomposer.example"
         },
         "cordova-plugin-email-composer": {
-            "PACKAGE_NAME": "com.greenlight.solareff"
+            "PACKAGE_NAME": "de.appplant.cordova.plugin.emailcomposer.example"
         }
     },
     "dependent_plugins": {}

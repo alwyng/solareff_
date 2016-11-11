@@ -1,69 +1,61 @@
-# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
-A PhoneGap Hello World template
+Cordova Email Plugin - Example
+==============================
 
-## Usage
+[Cordova][cordova] plugin to access the specific email composition API on various mobile platforms including iOS, Android and Windows Phone.
 
-#### PhoneGap CLI
+## Instructions
+[Download][zip] or clone the _example_ branch and run the following command:
 
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
+```bash
+cordova run [ios|android|windows]
+```
 
-    phonegap create my-app
+These will lunch the simulator or any plugged in device and start the example application as seen below in the screenshots. Its also possible to open the project with [Xcode][xcode], [Android Studio][studio] or [Visual Studio][vs].
 
-Create an app using this template specifically:
+<p align="center">
+    <img src="images/overview.png"></img>
+</p>
 
-    phonegap create my-app --template hello-world
+A click on the _"Draft with attachments"_ button will present the email composition controller to send the draft and for further editing.
 
-To see a list of other available PhoneGap templates:
+```javascript
+cordova.plugins.email.open({
+    subject: 'Cordova Icons',
+    recipients: 'max@mustermann.de',
+    attachments: [
+        'file://img/logo.png',
+        'res://icon.png',
+        'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+        'file://README.pdf'
+    ]
+})
+```
 
-    phonegap template list
-
-## [config.xml][config-xml]
-
-#### android-minSdkVersion (Android only)
-
-Minimum SDK version supported on the target device. Maximum version is blank by default.
-
-This template sets the minimum to `14`.
-
-    <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
-
-#### Content Security Policy (CSP)
-
-The default CSP is similarly open:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
-
-A good starting point declaration might be:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
-
-For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
-
-Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
+Please read the plugin's [README][readme] for further requirements and informations.
 
 
-[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
-[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
-[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
-[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
-[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
-[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
-[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
-[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
-[csp-is-awesome]: http://cspisawesome.com
+## Screenshots
+
+<p align="center">
+    <img width="32.5%" src="images/ios.png"></img>
+    <img width="32.5%" src="images/android.png"></img>
+    <img width="32.5%" src="images/windows.png"></img>
+</p>
+
+
+## License
+
+This software is released under the [Apache 2.0 License][apache2_license].
+
+© 2013-2016 appPlant UG, Inc. All rights reserved
+
+
+[cordova]: https://cordova.apache.org
+[readme]: https://github.com/katzer/cordova-plugin-email-composer/blob/master/README.md
+[zip]: https://github.com/katzer/cordova-plugin-email-composer/archive/example.zip
+[xcode]: https://developer.apple.com/xcode/
+[studio]: https://developer.android.com/sdk/installing/studio.html
+[vs]: https://www.visualstudio.com
+[apache2_license]: http://opensource.org/licenses/Apache-2.0
+

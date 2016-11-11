@@ -363,6 +363,14 @@
 				}
 			}
 			
+			function onFail(message) 
+			{
+				setTimeout(function() {
+					alert('Failed because: ' + message);
+				}, 0);
+				
+			}
+			
 			function onPhotoDataSuccess(imageData) 
 			{
 					

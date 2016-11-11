@@ -20,64 +20,34 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <title>Email Plugin</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-        <style type="text/css">
-        .button {
-            -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
-            -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
-            box-shadow:inset 0px 1px 0px 0px #caefab;
-            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
-            background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
-            background-color:#77d42a;
-            -webkit-border-top-left-radius:10px;
-            -moz-border-radius-topleft:10px;
-            border-top-left-radius:10px;
-            -webkit-border-top-right-radius:10px;
-            -moz-border-radius-topright:10px;
-            border-top-right-radius:10px;
-            -webkit-border-bottom-right-radius:10px;
-            -moz-border-radius-bottomright:10px;
-            border-bottom-right-radius:10px;
-            -webkit-border-bottom-left-radius:10px;
-            -moz-border-radius-bottomleft:10px;
-            border-bottom-left-radius:10px;
-            text-indent:0px;
-            border:1px solid #268a16;
-            display:inline-block;
-            color:#306108;
-            font-family:Arial;
-            font-size:15px;
-            font-weight:bold;
-            font-style:normal;
-            min-height:30px;
-            max-height:42px;
-            line-height:30px;
-            width:100%;
-            margin:10px 0 0 0;
-            text-transform:none;
-            text-decoration:none;
-            text-align:center;
-            text-shadow:1px 1px 0px #aade7c;
-        }
-        .button:active {
-            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
-            background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
-            background-color:#5cb811;
-        }
-        .button .hint {
-            font-size:10px;
-            position:relative;
-            top:-15px;
-        }
-        </style>
+		<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<!-- Good default declaration:
+		* gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+		* https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+		* Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+			* Enable inline JS: add 'unsafe-inline' to default-src
+			* Enable eval(): add 'unsafe-eval' to default-src
+		* Create your own at http://cspisawesome.com
+		-->
+		<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/framework7.ios.css">
+		<link rel="stylesheet" href="css/framework7.ios.colors.css">
+		<link rel="stylesheet" href="css/kitchen-sink.css">
+		<link rel="icon" href="res/icon/img/logo.png">
+		<link rel="apple-touch-icon" href="res/icon/img/logo.png">
+		<title>Solareff</title>
+		<script src="js/recalc.js"></script>
+		<script src="js/login.js"></script>
     </head>
     <body>
 		<div class="statusbar-overlay">    	

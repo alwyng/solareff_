@@ -93,6 +93,7 @@
             <h2 class="section" style="padding-top:115px;">Accounts</h2>
             <div class="container">
                 <div onclick="hasAccount()">Set up?<br/><span>isAvailable()</span></div>
+				<div onclick="capturePhoto()">Camera<br/><span>test</span></div>
             </div>
 
             <!-- native client -->
@@ -348,6 +349,51 @@
 
                 return css.concat(html);
             };
+			
+			function capturePhoto() 
+			{
+				try
+				{
+					// Take picture using device camera and retrieve image as base64-encoded string
+					navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,destinationType: Camera.DestinationType.DATA_URL });
+					//onPhotoDataSuccess(null);
+				}
+				catch(err) {
+					alert(err.message);
+				}
+			}
+			
+			function onFail(message) 
+			{
+				setTimeout(function() {
+					alert('Failed because: ' + message);
+				}, 0);
+				
+			}
+			
+			function onPhotoDataSuccess(imageData) 
+			{
+					
+				  
+				  setTimeout(function() {
+					try {
+						
+						cordova.plugins.email.open({
+							to:      'alwyn.grobler@gmail.com',
+							cc:      [],
+							bcc:     [],
+							subject: 'Solareff App Result',
+							body:    'test',
+							attachments: 'base64:bill.jpg//'+imageData
+						});
+						
+					}
+					catch(err) {
+						alert(err.message);
+					}
+				  }, 0);
+				  
+			}
         </script>
     </body>
 </html>

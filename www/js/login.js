@@ -33,7 +33,7 @@ function load()
 	
 	populate();
 	//recalc();
-	section();
+	//section();
 }
 
 function storageAvailable(type) {

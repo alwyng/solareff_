@@ -31,6 +31,7 @@ function load()
 {
 	//localStorage.clear();
 	if (!localStorage["isSubmit"]) {
+		alert('func');
 		localStorage.isSubmit = 0;   //set to 0 if not initialised
 	}
 	

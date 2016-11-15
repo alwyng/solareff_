@@ -30,7 +30,7 @@ function populate()
 function load()
 {
 	//localStorage.clear();
-	if (localStorage["isSubmit"]) {
+	if (!localStorage["isSubmit"]) {
 		localStorage.isSubmit = 0;   //set to 0 if not initialised
 	}
 	

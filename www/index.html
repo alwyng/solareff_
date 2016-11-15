@@ -72,7 +72,9 @@
 						</a>
 						<br>
 						<script>
-							alert(localStorage.getItem('isSubmit'));
+							if (!localStorage["isSubmit"]) {
+								localStorage.isSubmit = 0;   //set to 0 if not initialised
+							}
 							if (localStorage.getItem('isSubmit')==0 /*or localStorage.getItem('isSubmit')==null*/) 
 							{
 								document.write('<form style="padding-left:2%;" name="myform" action="">\

@@ -10,7 +10,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <plugin name="cordova-plugin-email-composer" source="npm" spec="0.8.3" />
+	<plugin name="de.appplant.cordova.plugin.email-composer" spec="https://github.com/katzer/cordova-plugin-email-composer.git#cab303daada1d86579b6c76354b8333ae5d1aefe" />
     <plugin name="cordova-plugin-camera" source="npm" spec="2.3.0" />
     <icon src="icon.png" />
     <platform name="android">
